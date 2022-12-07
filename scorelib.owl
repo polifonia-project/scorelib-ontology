@@ -6,11 +6,16 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      ontologyIRI="http://w3id.org/polifonia/ontology/scorelib">
+    <Prefix name="" IRI="http://w3id.org/polifonia/ontology/scorelib"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal>An ontology to model the content of music score libraries</Literal>
+    </Annotation>
     <Declaration>
         <Class IRI="#Annotation"/>
     </Declaration>
@@ -60,10 +65,13 @@
         <Class IRI="#TextualBody"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#chidOf"/>
+        <ObjectProperty IRI="#hasSubCollections"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#parent"/>
+        <ObjectProperty IRI="#isInCollection"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isPartOf"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#hasCode"/>
@@ -81,6 +89,13 @@
         <DataProperty IRI="#hasURL"/>
     </Declaration>
     <SubClassOf>
+        <Class IRI="#Opus"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#isInCollection"/>
+            <Class IRI="#Collection"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#ResourceBody"/>
         <Class IRI="#Body"/>
     </SubClassOf>
@@ -97,13 +112,30 @@
         <Class IRI="#TextualBody"/>
     </DisjointClasses>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#chidOf"/>
-        <ObjectProperty IRI="#parent"/>
+        <ObjectProperty IRI="#hasSubCollections"/>
+        <ObjectProperty IRI="#isPartOf"/>
     </InverseObjectProperties>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#isInCollection"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#isPartOf"/>
+    </FunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty IRI="#hasSubCollections"/>
+    </InverseFunctionalObjectProperty>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#parent"/>
+        <ObjectProperty IRI="#isInCollection"/>
+        <Class IRI="#Opus"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isPartOf"/>
         <Class IRI="#Collection"/>
     </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isInCollection"/>
+        <Class IRI="#Collection"/>
+    </ObjectPropertyRange>
     <DataPropertyDomain>
         <DataProperty IRI="#hasCode"/>
         <Class IRI="#Licence"/>
