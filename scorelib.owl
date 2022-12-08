@@ -26,6 +26,9 @@
         <Class IRI="#AnnotationModel"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Author"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Body"/>
     </Declaration>
     <Declaration>
@@ -33,6 +36,9 @@
     </Declaration>
     <Declaration>
         <Class IRI="#Feature"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#FeatureType"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Licence"/>
@@ -50,6 +56,12 @@
         <Class IRI="#ResourceBody"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Score"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ScoreType"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Selector"/>
     </Declaration>
     <Declaration>
@@ -65,36 +77,107 @@
         <Class IRI="#TextualBody"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#belongsToModel"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasAnnotation"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasAuthor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasBody"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasFeature"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasFeatureType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasLicence"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasScore"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasScoreType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasSelector"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasSource"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasSourceType"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#hasSubCollections"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasSubOpus"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasTarget"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#isInCollection"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#isInOpus"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#isPartOf"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#hasCode"/>
+        <ObjectProperty IRI="#isPerson"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#hasName"/>
+        <ObjectProperty IRI="#refersToConcept"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#hasNotice"/>
+        <DataProperty IRI="#hasAuthorRole"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#hasTitle"/>
+        <DataProperty IRI="#hasCollectionTitle"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#hasURL"/>
+        <DataProperty IRI="#hasDbpediaURI"/>
     </Declaration>
-    <SubClassOf>
-        <Class IRI="#Opus"/>
-        <ObjectExactCardinality cardinality="1">
-            <ObjectProperty IRI="#isInCollection"/>
-            <Class IRI="#Collection"/>
-        </ObjectExactCardinality>
-    </SubClassOf>
+    <Declaration>
+        <DataProperty IRI="#hasFeatureValue"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasLicenceCode"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasLicenceName"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasLicenceNotice"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasLicenceURL"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasOpusTitle"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#JPEG"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#MEI"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#MusicXML"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#nb_of_measures"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#tonality"/>
+    </Declaration>
     <SubClassOf>
         <Class IRI="#ResourceBody"/>
         <Class IRI="#Body"/>
@@ -111,71 +194,364 @@
         <Class IRI="#ResourceBody"/>
         <Class IRI="#TextualBody"/>
     </DisjointClasses>
+    <ClassAssertion>
+        <Class IRI="#ScoreType"/>
+        <NamedIndividual IRI="#JPEG"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#ScoreType"/>
+        <NamedIndividual IRI="#MEI"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#ScoreType"/>
+        <NamedIndividual IRI="#MusicXML"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#FeatureType"/>
+        <NamedIndividual IRI="#nb_of_measures"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#FeatureType"/>
+        <NamedIndividual IRI="#tonality"/>
+    </ClassAssertion>
     <InverseObjectProperties>
         <ObjectProperty IRI="#hasSubCollections"/>
         <ObjectProperty IRI="#isPartOf"/>
     </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasSubOpus"/>
+        <ObjectProperty IRI="#isInOpus"/>
+    </InverseObjectProperties>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#belongsToModel"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#hasBody"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#hasFeatureType"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#hasLicence"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#hasScoreType"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#hasSelector"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#hasSourceType"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#hasTarget"/>
+    </FunctionalObjectProperty>
     <FunctionalObjectProperty>
         <ObjectProperty IRI="#isInCollection"/>
     </FunctionalObjectProperty>
     <FunctionalObjectProperty>
+        <ObjectProperty IRI="#isInOpus"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
         <ObjectProperty IRI="#isPartOf"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#refersToConcept"/>
     </FunctionalObjectProperty>
     <InverseFunctionalObjectProperty>
         <ObjectProperty IRI="#hasSubCollections"/>
     </InverseFunctionalObjectProperty>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#belongsToModel"/>
+        <Class IRI="#AnnotationConcept"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasAnnotation"/>
+        <Class IRI="#Score"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasAuthor"/>
+        <Class IRI="#Opus"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasBody"/>
+        <Class IRI="#Annotation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasFeature"/>
+        <Class IRI="#Score"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasFeatureType"/>
+        <Class IRI="#Feature"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasLicence"/>
+        <Class IRI="#Score"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasScore"/>
+        <Class IRI="#Opus"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasScoreType"/>
+        <Class IRI="#Score"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasSelector"/>
+        <Class IRI="#SpecificResource"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasSource"/>
+        <Class IRI="#Opus"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasSourceType"/>
+        <Class IRI="#Source"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasTarget"/>
+        <Class IRI="#Annotation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#isInCollection"/>
+        <Class IRI="#Opus"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isInOpus"/>
         <Class IRI="#Opus"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#isPartOf"/>
         <Class IRI="#Collection"/>
     </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isPerson"/>
+        <Class IRI="#Author"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#refersToConcept"/>
+        <Class IRI="#Annotation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#belongsToModel"/>
+        <Class IRI="#AnnotationModel"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasAnnotation"/>
+        <Class IRI="#Annotation"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasAuthor"/>
+        <Class IRI="#Author"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasBody"/>
+        <Class IRI="#Body"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasFeature"/>
+        <Class IRI="#Feature"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasFeatureType"/>
+        <Class IRI="#FeatureType"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasLicence"/>
+        <Class IRI="#Licence"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasScore"/>
+        <Class IRI="#Score"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasScoreType"/>
+        <Class IRI="#ScoreType"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasSelector"/>
+        <Class IRI="#Selector"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasSource"/>
+        <Class IRI="#Source"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasSourceType"/>
+        <Class IRI="#SourceType"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasTarget"/>
+        <Class IRI="#Resource"/>
+    </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#isInCollection"/>
         <Class IRI="#Collection"/>
     </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isInOpus"/>
+        <Class IRI="#Opus"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#isPerson"/>
+        <Class IRI="#Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#refersToConcept"/>
+        <Class IRI="#AnnotationConcept"/>
+    </ObjectPropertyRange>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasCollectionTitle"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasDbpediaURI"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasFeatureValue"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasLicenceCode"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasLicenceName"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasLicenceNotice"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasLicenceURL"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#hasOpusTitle"/>
+    </FunctionalDataProperty>
     <DataPropertyDomain>
-        <DataProperty IRI="#hasCode"/>
-        <Class IRI="#Licence"/>
+        <DataProperty IRI="#hasAuthorRole"/>
+        <Class IRI="#Author"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="#hasName"/>
-        <Class IRI="#Licence"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#hasNotice"/>
-        <Class IRI="#Licence"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#hasTitle"/>
+        <DataProperty IRI="#hasCollectionTitle"/>
         <Class IRI="#Collection"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="#hasTitle"/>
-        <Class IRI="#Opus"/>
+        <DataProperty IRI="#hasDbpediaURI"/>
+        <Class IRI="#Person"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="#hasURL"/>
+        <DataProperty IRI="#hasFeatureValue"/>
+        <Class IRI="#Feature"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasLicenceCode"/>
         <Class IRI="#Licence"/>
     </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasLicenceName"/>
+        <Class IRI="#Licence"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasLicenceNotice"/>
+        <Class IRI="#Licence"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasLicenceURL"/>
+        <Class IRI="#Licence"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#hasOpusTitle"/>
+        <Class IRI="#Opus"/>
+    </DataPropertyDomain>
     <DataPropertyRange>
-        <DataProperty IRI="#hasCode"/>
+        <DataProperty IRI="#hasAuthorRole"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#hasName"/>
+        <DataProperty IRI="#hasCollectionTitle"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#hasNotice"/>
-        <Datatype abbreviatedIRI="xsd:string"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#hasURL"/>
+        <DataProperty IRI="#hasDbpediaURI"/>
         <Datatype abbreviatedIRI="xsd:anyURI"/>
     </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasFeatureValue"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasLicenceCode"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasLicenceName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasLicenceNotice"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasLicenceURL"/>
+        <Datatype abbreviatedIRI="xsd:anyURI"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasOpusTitle"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Author</IRI>
+        <Literal>Someone who participates to the creation of some music work, as a composer, orchestrator, copyist, etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Source</IRI>
+        <Literal>A source is any digital document related to the Opus. It can be a manuscript, performance, image of a score, textbook, etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#belongsToModel</IRI>
+        <Literal>An annotation concept ispart of an annotation model.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasAuthor</IRI>
+        <Literal>Temporary model: an opus has authors, with some role (composer, libretist, etc.). To be revised</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasBody</IRI>
+        <Literal>The body contains some information &quot;about&quot; the target</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasDbpediaURI</IRI>
+        <Literal>A person refers to a DBpedia entty via its URI</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasLicenceNotice</IRI>
+        <Literal>A licence has a notice that summarizes its purpose</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasSelector</IRI>
+        <Literal>A specific resource is a fragment of a resource defined by a selector. See https://www.w3.org/TR/annotation-model/</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasTarget</IRI>
+        <Literal>An annotation tells sth about a target (https://www.w3.org/TR/annotation-model/). The target can be a full document (Resource) or a fragment (SpecificResource)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#isInOpus</IRI>
+        <Literal>Opus can be sructured as a hierarchy of Opus. Example: an opera, that contains acts, that contains scenes, that contains individual music pieces (airs, choirs, orchestral parts, etc). In this example, the opera is a root of a tree of opus, the leaves of which are those individual music pieces.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#refersToConcept</IRI>
+        <Literal>Each annotation is done wrt to some purpose (e.g., the annotation report some quality pb, such as invalid clef of incomplete measure). Purposes are represented by anotation concepts</Literal>
+    </AnnotationAssertion>
 </Ontology>
 
 
