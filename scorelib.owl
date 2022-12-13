@@ -17,6 +17,9 @@
         <Literal>An ontology to model the content of music score libraries</Literal>
     </Annotation>
     <Declaration>
+        <Class IRI="#AnnotableScore"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Annotation"/>
     </Declaration>
     <Declaration>
@@ -178,6 +181,10 @@
     <Declaration>
         <NamedIndividual IRI="#tonality"/>
     </Declaration>
+    <SubClassOf>
+        <Class IRI="#AnnotableScore"/>
+        <Class IRI="#Score"/>
+    </SubClassOf>
     <SubClassOf>
         <Class IRI="#ResourceBody"/>
         <Class IRI="#Body"/>
@@ -267,7 +274,7 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasAnnotation"/>
-        <Class IRI="#Score"/>
+        <Class IRI="#AnnotableScore"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasAuthor"/>
@@ -499,6 +506,11 @@
     </DataPropertyRange>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#AnnotableScore</IRI>
+        <Literal>A score with an encoding that supports fine-grained annotations. typically (and exclusively?) MEI. Should be defined by a restriction ...</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Author</IRI>
         <Literal>Someone who participates to the creation of some music work, as a composer, orchestrator, copyist, etc.</Literal>
     </AnnotationAssertion>
@@ -511,6 +523,11 @@
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#belongsToModel</IRI>
         <Literal>An annotation concept ispart of an annotation model.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasAnnotation</IRI>
+        <Literal>An annotation tells sth (the &quot;body&quot;) about a fragment of a score (the &quot;target&quot;). In pratice, the fragment is specified by a XPath  expression on the MEI encoding, while the body is some structured description of a fragment property.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -550,7 +567,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#refersToConcept</IRI>
-        <Literal>Each annotation is done wrt to some purpose (e.g., the annotation report some quality pb, such as invalid clef of incomplete measure). Purposes are represented by anotation concepts</Literal>
+        <Literal>Each annotation specifies a property of the annotated target (e.g., the annotation reports some quality pb, such as invalid clef of incomplete measure). Properties are represented as annotation concepts.</Literal>
     </AnnotationAssertion>
 </Ontology>
 
