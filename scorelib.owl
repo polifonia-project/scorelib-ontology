@@ -101,6 +101,9 @@
         <ObjectProperty IRI="#hasLicence"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#hasOpus"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#hasScore"/>
     </Declaration>
     <Declaration>
@@ -141,6 +144,9 @@
     </Declaration>
     <Declaration>
         <DataProperty IRI="#hasAuthorRole"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasCollectionCopyright"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#hasCollectionTitle"/>
@@ -222,6 +228,10 @@
         <NamedIndividual IRI="#tonality"/>
     </ClassAssertion>
     <InverseObjectProperties>
+        <ObjectProperty IRI="#hasOpus"/>
+        <ObjectProperty IRI="#isInCollection"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
         <ObjectProperty IRI="#hasSubCollections"/>
         <ObjectProperty IRI="#isPartOf"/>
     </InverseObjectProperties>
@@ -265,6 +275,9 @@
     <FunctionalObjectProperty>
         <ObjectProperty IRI="#refersToConcept"/>
     </FunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty IRI="#hasOpus"/>
+    </InverseFunctionalObjectProperty>
     <InverseFunctionalObjectProperty>
         <ObjectProperty IRI="#hasSubCollections"/>
     </InverseFunctionalObjectProperty>
